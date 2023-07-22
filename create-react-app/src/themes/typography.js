@@ -1,10 +1,13 @@
 /**
- * Typography used in theme
- * @param {JsonObject} theme theme customization object
+ * 以上代码是一个用于定义主题中文字体和样式的函数。
+ * 它包含了各种不同级别的标题 (h1 到 h6)，副标题 (subtitle1 和 subtitle2)，
+ * 说明文本 (caption)，正文文本 (body1 和 body2)，以及按钮样式 (button) 等。
+ * 定义主题中文字体和样式的函数
+ * @param {JsonObject} theme 主题定制对象
  */
-
 export default function themeTypography(theme) {
   return {
+    // 字体
     fontFamily: theme?.customization?.fontFamily,
     h6: {
       fontWeight: 500,

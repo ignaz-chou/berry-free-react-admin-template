@@ -1,6 +1,11 @@
+/**
+ * 用于覆盖 Material-UI 组件样式的函数
+ * @param {JsonObject} theme 主题定制对象
+ */
 export default function componentStyleOverrides(theme) {
   const bgColor = theme.colors?.grey50;
   return {
+    // 覆盖 MuiButton 组件样式
     MuiButton: {
       styleOverrides: {
         root: {
@@ -9,6 +14,7 @@ export default function componentStyleOverrides(theme) {
         }
       }
     },
+    // 覆盖 MuiPaper 组件样式
     MuiPaper: {
       defaultProps: {
         elevation: 0
@@ -22,6 +28,7 @@ export default function componentStyleOverrides(theme) {
         }
       }
     },
+    // 覆盖 MuiCardHeader 组件样式
     MuiCardHeader: {
       styleOverrides: {
         root: {
@@ -33,6 +40,7 @@ export default function componentStyleOverrides(theme) {
         }
       }
     },
+    // 覆盖 MuiCardContent 组件样式
     MuiCardContent: {
       styleOverrides: {
         root: {
@@ -40,6 +48,7 @@ export default function componentStyleOverrides(theme) {
         }
       }
     },
+    // 覆盖 MuiCardActions 组件样式
     MuiCardActions: {
       styleOverrides: {
         root: {
@@ -47,6 +56,7 @@ export default function componentStyleOverrides(theme) {
         }
       }
     },
+    // 覆盖 MuiListItemButton 组件样式
     MuiListItemButton: {
       styleOverrides: {
         root: {
@@ -73,6 +83,7 @@ export default function componentStyleOverrides(theme) {
         }
       }
     },
+    // 覆盖 MuiListItemIcon 组件样式
     MuiListItemIcon: {
       styleOverrides: {
         root: {
@@ -81,6 +92,7 @@ export default function componentStyleOverrides(theme) {
         }
       }
     },
+    // 覆盖 MuiListItemText 组件样式
     MuiListItemText: {
       styleOverrides: {
         primary: {
@@ -88,6 +100,7 @@ export default function componentStyleOverrides(theme) {
         }
       }
     },
+    // 覆盖 MuiInputBase 组件样式
     MuiInputBase: {
       styleOverrides: {
         input: {
@@ -99,6 +112,7 @@ export default function componentStyleOverrides(theme) {
         }
       }
     },
+    // 覆盖 MuiOutlinedInput 组件样式
     MuiOutlinedInput: {
       styleOverrides: {
         root: {
@@ -134,6 +148,7 @@ export default function componentStyleOverrides(theme) {
         }
       }
     },
+    // 覆盖 MuiSlider 组件样式
     MuiSlider: {
       styleOverrides: {
         root: {
@@ -150,6 +165,7 @@ export default function componentStyleOverrides(theme) {
         }
       }
     },
+    // 覆盖 MuiDivider 组件样式
     MuiDivider: {
       styleOverrides: {
         root: {
@@ -158,6 +174,7 @@ export default function componentStyleOverrides(theme) {
         }
       }
     },
+    // 覆盖 MuiAvatar 组件样式
     MuiAvatar: {
       styleOverrides: {
         root: {
@@ -166,6 +183,7 @@ export default function componentStyleOverrides(theme) {
         }
       }
     },
+    // 覆盖 MuiChip 组件样式
     MuiChip: {
       styleOverrides: {
         root: {
@@ -175,6 +193,7 @@ export default function componentStyleOverrides(theme) {
         }
       }
     },
+    // 覆盖 MuiTooltip 组件样式
     MuiTooltip: {
       styleOverrides: {
         tooltip: {
