@@ -1,3 +1,4 @@
+// 导入依赖
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -17,6 +18,7 @@ import AccountTreeTwoToneIcon from '@mui/icons-material/AccountTreeTwoTone';
 import HomeIcon from '@mui/icons-material/Home';
 import HomeTwoToneIcon from '@mui/icons-material/HomeTwoTone';
 
+// 链接样式
 const linkSX = {
   display: 'flex',
   color: 'grey.900',
@@ -27,9 +29,11 @@ const linkSX = {
 
 // ==============================|| BREADCRUMBS ||============================== //
 
+// Breadcrumbs组件
 const Breadcrumbs = ({ card, divider, icon, icons, maxItems, navigation, rightAlign, separator, title, titleBottom, ...others }) => {
   const theme = useTheme();
 
+  // 图标样式
   const iconStyle = {
     marginRight: theme.spacing(0.75),
     marginTop: `-${theme.spacing(0.25)}`,
@@ -38,10 +42,11 @@ const Breadcrumbs = ({ card, divider, icon, icons, maxItems, navigation, rightAl
     color: theme.palette.secondary.main
   };
 
+  // 状态管理
   const [main, setMain] = useState();
   const [item, setItem] = useState();
 
-  // set active item state
+  // 获取展开的菜单项
   const getCollapse = (menu) => {
     if (menu.children) {
       menu.children.filter((collapse) => {
@@ -67,7 +72,7 @@ const Breadcrumbs = ({ card, divider, icon, icons, maxItems, navigation, rightAl
     });
   });
 
-  // item separator
+  // item分隔符图标
   const SeparatorIcon = separator;
   const separatorIcon = separator ? <SeparatorIcon stroke={1.5} size="1rem" /> : <IconTallymark1 stroke={1.5} size="1rem" />;
 
@@ -78,7 +83,7 @@ const Breadcrumbs = ({ card, divider, icon, icons, maxItems, navigation, rightAl
   let CollapseIcon;
   let ItemIcon;
 
-  // collapse item
+  // 展开项为collapse类型
   if (main && main.type === 'collapse') {
     CollapseIcon = main.icon ? main.icon : AccountTreeTwoToneIcon;
     mainContent = (
@@ -89,7 +94,7 @@ const Breadcrumbs = ({ card, divider, icon, icons, maxItems, navigation, rightAl
     );
   }
 
-  // items
+  // 展开项为item类型
   if (item && item.type === 'item') {
     itemTitle = item.title;
 
@@ -171,6 +176,7 @@ const Breadcrumbs = ({ card, divider, icon, icons, maxItems, navigation, rightAl
   return breadcrumbContent;
 };
 
+// 属性类型检查
 Breadcrumbs.propTypes = {
   card: PropTypes.bool,
   divider: PropTypes.bool,

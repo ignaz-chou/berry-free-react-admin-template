@@ -1,17 +1,11 @@
-// material-ui
+// 导入 useTheme 钩子，用于获取当前主题对象
 import { useTheme } from '@mui/material/styles';
-
-/**
- * if you want to use image instead of <svg> uncomment following.
- *
- * import logoDark from 'assets/images/logo-dark.svg';
- * import logo from 'assets/images/logo.svg';
- *
- */
 
 // ==============================|| LOGO SVG ||============================== //
 
+// 定义 Logo 组件
 const Logo = () => {
+  // 使用 useTheme 钩子获取当前主题对象
   const theme = useTheme();
 
   return (

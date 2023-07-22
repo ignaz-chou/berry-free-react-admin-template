@@ -1,34 +1,34 @@
 /**
- * Password validator for login pages
+ * 密码验证器，用于登录页面
  */
 import value from 'assets/scss/_themes-vars.module.scss';
 
-// has number
-const hasNumber = (number) => new RegExp(/[0-9]/).test(number);
+// 判断密码是否包含数字
+const hasNumber = (password) => new RegExp(/[0-9]/).test(password);
 
-// has mix of small and capitals
-const hasMixed = (number) => new RegExp(/[a-z]/).test(number) && new RegExp(/[A-Z]/).test(number);
+// 判断密码是否包含大小写字母的混合
+const hasMixed = (password) => new RegExp(/[a-z]/).test(password) && new RegExp(/[A-Z]/).test(password);
 
-// has special chars
-const hasSpecial = (number) => new RegExp(/[!#@$%^&*)(+=._-]/).test(number);
+// 判断密码是否包含特殊字符
+const hasSpecial = (password) => new RegExp(/[!#@$%^&*)(+=._-]/).test(password);
 
-// set color based on password strength
-export const strengthColor = (count) => {
-  if (count < 2) return { label: 'Poor', color: value.errorMain };
-  if (count < 3) return { label: 'Weak', color: value.warningDark };
-  if (count < 4) return { label: 'Normal', color: value.orangeMain };
-  if (count < 5) return { label: 'Good', color: value.successMain };
-  if (count < 6) return { label: 'Strong', color: value.successDark };
-  return { label: 'Poor', color: value.errorMain };
+// 根据密码强度设置颜色
+export const strengthColor = (strengthCount) => {
+  if (strengthCount < 2) return { label: '弱', color: value.errorMain };
+  if (strengthCount < 3) return { label: '较弱', color: value.warningDark };
+  if (strengthCount < 4) return { label: '一般', color: value.orangeMain };
+  if (strengthCount < 5) return { label: '较好', color: value.successMain };
+  if (strengthCount < 6) return { label: '强', color: value.successDark };
+  return { label: '弱', color: value.errorMain };
 };
 
-// password strength indicator
-export const strengthIndicator = (number) => {
-  let strengths = 0;
-  if (number.length > 5) strengths += 1;
-  if (number.length > 7) strengths += 1;
-  if (hasNumber(number)) strengths += 1;
-  if (hasSpecial(number)) strengths += 1;
-  if (hasMixed(number)) strengths += 1;
-  return strengths;
+// 密码强度指示器
+export const strengthIndicator = (password) => {
+  let strengthCount = 0;
+  if (password.length > 5) strengthCount += 1; // 密码长度超过5位，增加强度计数
+  if (password.length > 7) strengthCount += 1; // 密码长度超过7位，再次增加强度计数
+  if (hasNumber(password)) strengthCount += 1; // 包含数字，增加强度计数
+  if (hasSpecial(password)) strengthCount += 1; // 包含特殊字符，增加强度计数
+  if (hasMixed(password)) strengthCount += 1; // 包含大小写字母混合，增加强度计数
+  return strengthCount;
 };

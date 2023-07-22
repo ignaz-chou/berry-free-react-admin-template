@@ -1,3 +1,4 @@
+// 导入依赖
 import PropTypes from 'prop-types';
 import { forwardRef } from 'react';
 
@@ -6,11 +7,13 @@ import { Collapse, Fade, Box, Grow, Slide, Zoom } from '@mui/material';
 
 // ==============================|| TRANSITIONS ||============================== //
 
+// Transitions组件
 const Transitions = forwardRef(({ children, position, type, direction, ...others }, ref) => {
   let positionSX = {
     transformOrigin: '0 0 0'
   };
 
+  // 根据不同的位置设置transform-origin样式
   switch (position) {
     case 'top-right':
       positionSX = {
@@ -91,6 +94,7 @@ const Transitions = forwardRef(({ children, position, type, direction, ...others
   );
 });
 
+// 属性类型检查
 Transitions.propTypes = {
   children: PropTypes.node,
   type: PropTypes.oneOf(['grow', 'fade', 'collapse', 'slide', 'zoom']),
@@ -98,6 +102,7 @@ Transitions.propTypes = {
   direction: PropTypes.oneOf(['up', 'down', 'left', 'right'])
 };
 
+// 默认属性
 Transitions.defaultProps = {
   type: 'grow',
   position: 'top-left',
